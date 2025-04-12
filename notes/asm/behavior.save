@@ -14,4 +14,5 @@
 1000:0013 - MOV DI,SI		- Destination index set to SI and 0x3F0
 1000:0015 - MOV CX,0x10		- Sets Counter CX to 0x10, so future counters will do 16 rounds till cx=0x00
 1000:0018 - REP MOVSB ES:DI,SI	- 16 * (Move one byte of DS:SI (0009:03F0) to ES:DI (0040:03F0), inc SI and DI, dec CX) (Go until CX=0x00)
+1000:001a - POP ES		-
 
