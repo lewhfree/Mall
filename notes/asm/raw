@@ -1,15 +1,23 @@
 1000:0000 - CLI			- Clears the interupt flag register, no interupts until STI
-1000:0001 - PUSH SS		- Puts the value of SS (stack segment) register onto the stack - (SS = 0x03EE)
-1000:0002 - POP DS		- Basically copies the value of SS to DS by pushing ss and popping ds (SS = 0x03F0)
+1000:0001 - PUSH SS		- Puts the value of SS (stack segment) register onto the stack
+1000:0002 - POP DS		- Basically copies the value of SS to DS by pushing ss and popping ds
 1000:0003 - MOV AX,ES:[0x2]	- Memory read from the extra segment ES:0x2 offset. Put in AX
 1000:0007 - SUB AX,0x40		- Subtracts 0x40 from AX in place
 1000:000A - MOV SS,AX		- Sets te stack segment register to the value of AX
 1000:000C - STI			- Sets the interupt flag register. Hardware interupts back on after 1000:0000 CLI
-1000:000D - PUSH ES		- Pushes the Extra segment register to the stack. (SS = 0x3EE)
-1000:000E - PUSH SS		- Pushes Stack Segment to the stack (SS = 3EC)
-1000:000F - POP ES		- Sets Extra segment address to SS off of the stack (SS=3EE)
+1000:000D - PUSH ES		- Pushes the Extra segment register to the stack.
+1000:000E - PUSH SS		- Pushes Stack Segment to the stack
+1000:000F - POP ES		- Sets Extra segment address to SS off of the stack
 1000:0010 - MOV SI,0x3F0	- Sets Source Index (SI) register to 0x3F0
 1000:0013 - MOV DI,SI		- Sets Destination Index register to SI (now 0x3F0)
 1000:0015 - MOV CX,0x10		- Sets Counter register (cx) to 0x10
 1000:0018 - REP MOVSB ES:DI,SI	- Moves 16 (0x10, CX) bytes starting at DS:SI (0x3F0) to ES:DI (0x3F0). SI and DI end containing 0x400, and cx containing 0x0
 1000:001a - POP ES		- 
+1000:001b - MOV SS:[0x3fc],ES	- 
+1000:0020 - MOV BX,AX		-
+1000:0022 - MOV DX,CS		-
+1000:0024 - ADD DX,SS:[0x3f0]	-
+1000:0029 - MOV BP,SS:[0x3f0]	-
+1000:002e - STD			- Sets direction flag to 1, string copy things will go backwards now.
+1000:002f - MOV AX,BP		-
+1000:0031 - CMP AX,0x1000	-
