@@ -1,0 +1,5 @@
+system causeway
+file build/main.o
+name FALL.EXE
+option map
+option verbose

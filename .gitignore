@@ -1,5 +1,5 @@
 *.asm
 *.obj
 *.o
-*.exe
-*.EXE
+fall.exe
+FALL.EXE
